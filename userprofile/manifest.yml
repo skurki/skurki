@@ -1,0 +1,7 @@
+---
+applications:
+- name: userprofile
+  memory: 768M
+  instances: 1
+  path: ./target/userprofile-0.0.1-SNAPSHOT.jar
+  timeout: 360
