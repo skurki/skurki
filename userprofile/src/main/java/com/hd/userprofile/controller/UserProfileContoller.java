@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,7 +29,7 @@ public class UserProfileContoller {
 	public static final Logger logger = LoggerFactory.getLogger(UserProfileContoller.class);
 	
 	@RequestMapping(value="/user", method=RequestMethod.GET, 
-			consumes="application/json", produces="application/json")
+			consumes=MediaType.APPLICATION_JSON_UTF8_VALUE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<?> getAllUserProfiles(){
 		logger.info("Get all profiles");
 		List<User> profileList = userProfileService.findAllUserProfiles();
@@ -40,7 +41,7 @@ public class UserProfileContoller {
 	
 
 	@RequestMapping(value="/user/{id}", method=RequestMethod.GET,
-			consumes="application/json", produces="application/json")
+			consumes=MediaType.APPLICATION_JSON_UTF8_VALUE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<?> getUserProfile(@PathVariable("id") long userId){
 		logger.info("Get profile by id");
 		User user = userProfileService.findUserProfile(userId);
@@ -51,7 +52,7 @@ public class UserProfileContoller {
 	}
 	
 	@RequestMapping(value="/user", method=RequestMethod.POST,
-			consumes="application/json", produces="application/json")
+			consumes=MediaType.APPLICATION_JSON_UTF8_VALUE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<?> createUserProfile(@RequestBody User user){
 		logger.info("Create a profile");
 		User createdUser = userProfileService.createUserProfile(user);
@@ -59,7 +60,7 @@ public class UserProfileContoller {
 	}
 	
 	@RequestMapping(value="/user/{id}", method=RequestMethod.PUT,
-			consumes="application/json", produces="application/json")
+			consumes=MediaType.APPLICATION_JSON_UTF8_VALUE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<?> updateUserProfile(@PathVariable("id") long id , @RequestBody User user){
 		logger.info("Update an existing profile");
 		User existingUser = userProfileService.findUserProfile(id);
@@ -74,7 +75,7 @@ public class UserProfileContoller {
 	
 	
 	@RequestMapping(value="/user/{id}", method=RequestMethod.DELETE,
-			consumes="application/json", produces="application/json")
+			consumes=MediaType.APPLICATION_JSON_UTF8_VALUE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<?> deleteUserProfile(@PathVariable("id") long id){
 		logger.info("Delete a profile by id");
 		User existingUser = userProfileService.findUserProfile(id);
@@ -88,7 +89,7 @@ public class UserProfileContoller {
 	}
 	
 	@RequestMapping(value="/user", method=RequestMethod.DELETE,
-			consumes="application/json", produces="application/json")
+			consumes=MediaType.APPLICATION_JSON_UTF8_VALUE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<?> deleteAllUserProfiles(){
 		logger.info("Delete all profiles");
 		userProfileService.deleteAllUserProfiles();
