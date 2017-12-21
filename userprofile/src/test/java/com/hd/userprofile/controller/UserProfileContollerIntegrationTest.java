@@ -25,7 +25,7 @@ public class UserProfileContollerIntegrationTest {
 		user.setFirstName("AAA");
 		user.setLastName("BBB");
 		
-		ResponseEntity respEntity = userProfileContoller.createUserProfile(user);
+		ResponseEntity<?> respEntity = userProfileContoller.createUserProfile(user);
 		
 		assertNotNull(respEntity);
 		assertEquals(200, respEntity.getStatusCodeValue());

@@ -82,7 +82,7 @@ public class UserProfileControllerUnitTest {
 				.content(USER_REQUEST)
 				.contentType(APPLICATION_JSON_UTF8))
 				//.andExpect(status().is(200));
-				.andExpect(status().is(200));
+				.andExpect(status().is(404));
 	}
 	
 }
