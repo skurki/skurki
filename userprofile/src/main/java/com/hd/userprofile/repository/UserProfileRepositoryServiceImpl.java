@@ -19,8 +19,16 @@ public class UserProfileRepositoryServiceImpl implements UserProfileRepositorySe
 		User user = new User();
 		user.setFirstName("John");
 		user.setLastName("Smith");
-		user.setId(counter.getAndIncrement());
+		user.setEmailId("john.smith@mailme.com");
+		user.setId(counter.get());
 		userProfileList.add(user);
+		
+		user = new User();
+		user.setFirstName("Jack");
+		user.setLastName("Smith");
+		user.setEmailId("jack.smith@mailme.com");
+		user.setId(counter.incrementAndGet());
+		userProfileList.add(user);	
 	}
 	@Override
 	public List<User> findAll() {
